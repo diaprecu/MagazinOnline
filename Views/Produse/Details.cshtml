@@ -1,0 +1,21 @@
+﻿@model MagazinOnline.Models.DatabaseModels.Produs
+
+@{
+    ViewBag.Title = "Detalii Produs:";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4 class="text-danger">@Html.DisplayFor(model => model.Denumire)</h4>
+    <hr />
+    <p><b>Pret unitar:</b> @Html.DisplayFor(model => model.Pret)</p>
+    <p><b>Stoc:</b> @Html.DisplayFor(model => model.Stoc)</p>
+    <p><b>Categorie:</b> @Html.DisplayFor(model => model.Categorie.Denumire)</p>
+    <p><b>Furnior:</b> @Html.DisplayFor(model => model.Furnizor.Denumire)</p>
+    <p><b>Descriere:</b><br /> @Html.DisplayFor(model => model.Descriere)</p>
+</div>
+<p>
+    @Html.ActionLink("Editare", "Edit", new { id = Model.ID }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Înapoi la listă", "Index", null, new { @class = "btn btn-danger" })
+</p>

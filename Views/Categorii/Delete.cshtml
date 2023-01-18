@@ -1,0 +1,42 @@
+﻿@model MagazinOnline.Models.DatabaseModels.Categorie
+
+@{
+    ViewBag.Title = "Ștergere Categorie";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3 class="text-danger">Sunteți sigur că vreți să ștergeți această Categorie?</h3>
+<h5 class="text-warning">*Produsele asociate cu această categorie vor rămâne în inventar, dar nu vor mai avea nicio Categorie asociată!</h5>
+<hr />
+<div>
+    <div>
+        <h4 class="text-success">@Html.DisplayFor(model => model.Denumire)</h4>
+        <p>
+            <b>Produsele din aceasta categorie:</b>
+            <ol class="list-group list-group-numbered">
+                @foreach (var produs in Model.Produs)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">@produs.Denumire</div>
+                            Pret: @produs.Pret
+                        </div>
+                        <span class="badge bg-primary rounded-pill">@produs.Stoc</span>
+                    </li>
+                }
+
+            </ol>
+        </p>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Ștergere" class="btn btn-danger" />
+            @Html.ActionLink("Înapoi la listă", "Index", null, new { @class = "btn btn-success" })
+        </div>
+    }
+</div>

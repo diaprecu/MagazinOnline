@@ -1,0 +1,30 @@
+﻿@model MagazinOnline.Models.DatabaseModels.Produs
+
+@{
+    ViewBag.Title = "Ștergere Produs";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3 class="text-danger">Sunteți sigur că vreți să ștergeți acest Produs?</h3>
+<hr />
+<div>
+    <div>
+        <h4 class="text-success">@Html.DisplayFor(model => model.Denumire)</h4>
+
+        <p><b>Pret unitar:</b> @Html.DisplayFor(model => model.Pret)</p>
+        <p><b>Stoc:</b> @Html.DisplayFor(model => model.Stoc)</p>
+        <p><b>Categorie:</b> @Html.DisplayFor(model => model.Categorie.Denumire)</p>
+        <p><b>Furnior:</b> @Html.DisplayFor(model => model.Furnizor.Denumire)</p>
+        <p><b>Descriere:</b><br /> @Html.DisplayFor(model => model.Descriere)</p>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Ștergere" class="btn btn-danger" /> 
+                @Html.ActionLink("Înapoi la listă", "Index", null, new { @class = "btn btn-success" })
+            </div>
+    }
+</div>

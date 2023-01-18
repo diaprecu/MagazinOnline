@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Magazin Online";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p>Aplicatia <b>MagazinOnline</b> poate fi utila daca vrem sa manageriem un magazin online.</p>
+
+<p>Aplicatia poate realiza urmatoarele operatiuni:</p>
+
+<ol class="list-group list-group-numbered">
+    <li class="list-group-item">
+        <b>Produse</b>:
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vizualizarea produselor din magazin, precum si stocul acestora,</li>
+            <li class="list-group-item">Adaugarea de noi produse,</li>
+            <li class="list-group-item">Modificarea detaliilor unui produs, precum: Denumirea, Descrierea, Pretul, Stocul, Furnizorul sau Categoria,</li>
+            <li class="list-group-item">Stergerea unui produs din inventar.</li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <b>Furnizori</b>:
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vizualizarea Furnizorilor care colaboreaza cu magazinul,</li>
+            <li class="list-group-item">Adaugarea de noi furnizori,</li>
+            <li class="list-group-item">Modificarea detaliilor unui furnizor, precum: Denumirea sau detaliile de contact (adresa de email si telefonul),</li>
+            <li class="list-group-item">Stergerea unui furnizor din lista</li>
+        </ul>
+    </li>
+    <li class="list-group-item">
+        <b>Categoriile de produse</b>:
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vizualizarea nomenclatorului de Categorii,</li>
+            <li class="list-group-item">Adaugarea de noi Categorii în nomenclaor,</li>
+            <li class="list-group-item">Modificarea denumirii unei categorii existente,</li>
+            <li class="list-group-item">Eliminarea unei categorii din nomenclator.</li>
+        </ul>
+    </li>
+
+</ol>
+<br />
+<p><b>*</b>Atunci când este ștearsă o categorie referită de unul sau mai multe produse, produsele respective nu mai sunt asociate cu acea categorie dar rămân în inventar<br />
+<b>*</b>Atunci când este eliminat unul dintre furnizori cae este referit de unul sau mai multe produse, produsele respective nu mai sunt asociate cu niciun furnizor dar rămân în inventar</p>
+
+

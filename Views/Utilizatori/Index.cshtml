@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MagazinOnline.Models.DatabaseModels.Utilizator>
+
+@{
+    ViewBag.Title = "Utilizatori";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>
+    @Html.ActionLink("Adăugare", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parola)
+        </th>
+        <th>Acțiuni</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parola)
+            </td>
+            <td>
+                <div class="btn-group">
+                    @Html.ActionLink("Editare", "Edit", new { id = item.ID }, new { @class = "btn btn-dark" })
+                    @Html.ActionLink("Detalii", "Details", new { id = item.ID }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Ștergere", "Delete", new { id = item.ID }, new { @class = "btn btn-dark" })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

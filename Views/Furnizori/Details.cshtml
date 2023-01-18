@@ -1,0 +1,33 @@
+﻿@model MagazinOnline.Models.DatabaseModels.Furnizor
+
+@{
+    ViewBag.Title = "Detalii Furnizor:";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4 class="text-danger">@Html.DisplayFor(model => model.Denumire)</h4>
+    <hr />
+    <p><b>Email:</b> @Html.DisplayFor(model => model.Email)</p>
+    <p><b>Telefon:</b> @Html.DisplayFor(model => model.Telefon)</p>
+    <p><b>Produsele acestui furnizor din inventar:</b>
+       <ol class="list-group list-group-numbered">
+           @foreach (var produs in Model.Produs) 
+           { 
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">@produs.Denumire</div>
+                    Pret: @produs.Pret
+                </div>
+                <span class="badge bg-primary rounded-pill">@produs.Stoc</span>
+            </li>
+           }
+           
+       </ol>
+    </p>
+</div>
+<p>
+    @Html.ActionLink("Editare", "Edit", new { id = Model.ID }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Înapoi la listă", "Index", null, new { @class = "btn btn-danger" })
+</p>

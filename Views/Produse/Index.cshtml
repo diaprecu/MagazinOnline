@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MagazinOnline.Models.DatabaseModels.Produs>
+
+@{
+    ViewBag.Title = "Produse";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>
+    @Html.ActionLink("Adăugare", "Create", null, new {@class="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Denumire
+        </th>
+        <th>
+            Descriere
+        </th>
+        <th>
+            Pret
+        </th>
+        <th>
+            Stoc
+        </th>
+        <th>
+            Categorie
+        </th>
+        <th>
+            Furnizor
+        </th>
+        <th>Acțiuni</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Denumire)
+            </td>
+            <td>
+
+                @if (item.Descriere.Length > 70)
+                {
+                    item.Descriere = item.Descriere.Substring(0, 70) + "  " + Html.ActionLink("[...]", "Details", new { id = item.ID, @class = "link-info" });
+                }
+
+                @Html.Raw(@item.Descriere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorie.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Furnizor.Denumire)
+            </td>
+            <td>
+                <div class="btn-group">
+                    @Html.ActionLink("Editare", "Edit", new { id = item.ID }, new { @class = "btn btn-dark" })
+                    @Html.ActionLink("Detalii", "Details", new { id = item.ID }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Ștergere", "Delete", new { id = item.ID }, new { @class = "btn btn-dark" })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
